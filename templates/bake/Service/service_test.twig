@@ -1,0 +1,34 @@
+    {#
+    /**
+     * {{ name }}Service Test Case
+     */
+    #}
+
+    namespace {{ name }}\Test\TestCase\Service;
+
+    use {{ name }}\Service\{{ name }}Service;
+
+    class {{ name }}ServiceTest extends \BaserCore\TestSuite\BcTestCase
+    {
+        public function setUp(): void
+        {
+            parent::setUp();
+            $this->{{ name }} = new {{ name }}Service();
+        }
+
+        public function tearDown(): void
+        {
+            unset($this->{{ name }});
+            parent::tearDown();
+        }
+
+        /**
+        * Test __construct
+        */
+        public function test__construct()
+        {
+            // テーブルがセットされている事を確認
+            $this->assertEquals('BlogCategories', $this->BlogCategories->BlogCategories->getAlias());
+        }
+        
+    }

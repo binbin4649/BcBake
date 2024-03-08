@@ -35,8 +35,9 @@ class BcAllCommand extends AllCommand
         // CUSTOMIZE ADD 2024/02/23 ryuring
         // >>>
         ServiceCommand::class,
-        AdminServiceCommand::class
+        AdminServiceCommand::class,
         // <<<
+        ServiceTestCommand::class
     ];
 
 }
