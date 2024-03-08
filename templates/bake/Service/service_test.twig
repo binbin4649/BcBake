@@ -1,34 +1,35 @@
-    {#
-    /**
-     * {{ name }}Service Test Case
-     */
-    #}
+<?php
+{#
+/**
+    * {{ name }}Service Test Case
+    */
+#}
 
-    namespace {{ name }}\Test\TestCase\Service;
+namespace {{ namespace }}\Test\TestCase\Service;
 
-    use {{ name }}\Service\{{ name }}Service;
+use {{ namespace }}\Service\{{ name }}Service;
 
-    class {{ name }}ServiceTest extends \BaserCore\TestSuite\BcTestCase
+class {{ name }}ServiceTest extends \BaserCore\TestSuite\BcTestCase
+{
+    public function setUp(): void
     {
-        public function setUp(): void
-        {
-            parent::setUp();
-            $this->{{ name }} = new {{ name }}Service();
-        }
-
-        public function tearDown(): void
-        {
-            unset($this->{{ name }});
-            parent::tearDown();
-        }
-
-        /**
-        * Test __construct
-        */
-        public function test__construct()
-        {
-            // テーブルがセットされている事を確認
-            $this->assertEquals('BlogCategories', $this->BlogCategories->BlogCategories->getAlias());
-        }
-        
+        parent::setUp();
+        $this->{{ name }} = new {{ name }}Service();
     }
+
+    public function tearDown(): void
+    {
+        unset($this->{{ name }});
+        parent::tearDown();
+    }
+
+    /**
+    * Test __construct
+    */
+    public function test__construct()
+    {
+        // テーブルがセットされている事を確認
+        $this->assertEquals('{{ name }}', $this->{{ name }}->{{ name }}->getAlias());
+    }
+    
+}
