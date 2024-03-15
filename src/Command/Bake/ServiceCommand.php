@@ -86,4 +86,37 @@ class ServiceCommand extends SimpleBakeCommand
         $serviceInterface->execute($args, $io);
     }
 
+    // public function bakeTest(string $className, Arguments $args, ConsoleIo $io): void
+    // {
+    //     parent::bakeTest($className, $args, $io);
+    //     $this->bakeServiceTest($args, $io);
+    // }
+
+    public function bakeTest(string $className, Arguments $args, ConsoleIo $io): void
+    {
+        parent::bakeTest($className, $args, $io);
+        $this->bakeServiceTest($args, $io);
+    }
+
+    /**
+     * ServiceTest 生成
+     * @param Arguments $args
+     * @param ConsoleIo $io
+     * @return void
+     */
+    // public function bakeServiceTest(Arguments $args, ConsoleIo $io): void
+    // {
+    //     $serviceTest = new ServiceTestCommand();
+    //     $serviceTest->execute($args, $io);
+    // }
+
+    public function bakeServiceTest(Arguments $args, ConsoleIo $io): void
+    {
+        // $serviceTest = new ServiceTestCommand();
+        // $serviceTest->execute($args, $io);
+        $commandRunner = new \Cake\Console\CommandRunner($this->getApplication());
+        $commandRunner->run(['cake', 'service_test']);
+    }
+
+
 }
